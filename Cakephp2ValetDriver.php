@@ -46,6 +46,10 @@ class Cakephp2ValetDriver extends ValetDriver
      */
     public function frontControllerPath($sitePath, $siteName, $uri)
     {
+        $_SERVER['DOCUMENT_ROOT'] = $sitePath.'/app/webroot';
+        $_SERVER['SCRIPT_FILENAME'] = $sitePath.'/app/webroot/index.php';
+        $_SERVER['SCRIPT_NAME'] = '/index.php';
+        $_SERVER['PHP_SELF'] = '/index.php';
         return $sitePath.'/app/webroot/index.php';
     }
 }
